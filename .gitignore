@@ -2,3 +2,4 @@
 __pycache__/
 *.pyc
 trip_planner_env/
+test.py 
