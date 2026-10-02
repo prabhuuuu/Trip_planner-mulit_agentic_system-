@@ -23,6 +23,7 @@ app.mount(
 templates=Jinja2Templates(directory="templates")
 
 class travelRequest(BaseModel):
+    message:str
     thread_id:str|None=None
 
 @app.get("/",response_class=HTMLResponse)
@@ -54,9 +55,7 @@ async def travel_planner(request_data:travelRequest):
                 "answer": result["answer"],
                 "flight_results": result["flight_results"],
                 "hotel_results": result["hotel_results"],
-                "itinerary": result["itinerary"],
                 "llm_calls": result["llm_calls"]
-
             }
         )
     except Exception as e:
